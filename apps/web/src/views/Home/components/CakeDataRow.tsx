@@ -128,21 +128,21 @@ const CakeDataRow = () => {
   return (
     <StyledWrapper mb={isMobile ? '30px' : '50px'}>
       <StyledColumn>
-        <Text color="text" bold fontSize={isMobile ? '14px' : undefined}>
+        <Text color="primary" fontSize={isMobile ? '14px' : '16px'}>
           {t('Circulating Supply')}
         </Text>
         {circulatingSupply ? (
-          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={circulatingSupply} color="secondary" />
+          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={circulatingSupply} color="text" />
         ) : (
           <Skeleton height={24} width={126} my="4px" />
         )}
       </StyledColumn>
       <StyledColumn noMobileBorder>
-        <Text bold fontSize={isMobile ? '14px' : undefined}>
+        <Text color="primary" fontSize={isMobile ? '14px' : '16px'}>
           {t('Total supply')}
         </Text>
         {cakeSupply ? (
-          <Balance color="secondary" decimals={0} lineHeight="1.1" fontSize="24px" bold value={cakeSupply} />
+          <Balance decimals={0} lineHeight="1.1" color="text" fontSize="24px" bold value={cakeSupply} />
         ) : (
           <>
             <div ref={observerRef} />
@@ -151,11 +151,11 @@ const CakeDataRow = () => {
         )}
       </StyledColumn>
       <StyledColumn>
-        <Text bold fontSize={isMobile ? '14px' : undefined}>
+        <Text color="primary" fontSize={isMobile ? '14px' : '16px'}>
           {t('Market cap')}
         </Text>
         {mcap?.gt(0) && mcapString ? (
-          <Heading color="secondary" scale="lg">
+          <Heading color="text" scale="lg">
             {t('$%marketCap%', { marketCap: mcapString })}
           </Heading>
         ) : (
@@ -163,20 +163,21 @@ const CakeDataRow = () => {
         )}
       </StyledColumn>
       <StyledColumn>
-        <Text bold fontSize={isMobile ? '14px' : undefined}>
+        <Text color="primary" fontSize={isMobile ? '14px' : '16px'}>
           {t('Token Burn')}
         </Text>
         {burnedBalance ? (
-          <Balance color="secondary" decimals={0} lineHeight="1.1" fontSize="24px" bold value={burnedBalance} />
+          <Balance color="text" decimals={0} lineHeight="1.1" fontSize="24px" bold value={burnedBalance} />
         ) : (
           <Skeleton height={24} width={126} my="4px" />
         )}
       </StyledColumn>
       <StyledColumn>
-        <Text bold>{t('Current emissions')}</Text>
-
+        <Text color="primary" fontSize={isMobile ? '14px' : '16px'}>
+          {t('Current emissions')}
+        </Text>
         {emissionsPerBlock ? (
-          <Heading color="secondary" scale="lg">
+          <Heading color="text" scale="lg">
             {t('%cakeEmissions%/block', { cakeEmissions: formatNumber(emissionsPerBlock) })}
           </Heading>
         ) : (

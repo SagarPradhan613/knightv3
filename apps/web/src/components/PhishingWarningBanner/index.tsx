@@ -9,12 +9,13 @@ const Container = styled(Flex)`
   height: 100%;
   padding: 12px;
   align-items: center;
-  background: linear-gradient(0deg, rgba(39, 38, 44, 0.4), rgba(39, 38, 44, 0.4)),
-    linear-gradient(180deg, #8051d6 0%, #492286 100%);
-  ${({ theme }) => theme.mediaQueries.md} {
-    padding: 0px;
-    background: linear-gradient(180deg, #8051d6 0%, #492286 100%);
-  }
+  background: linear-gradient(rgb(32, 40, 58) 0%, rgb(61, 84, 108) 100%);
+  // background: linear-gradient(0deg, rgba(39, 38, 44, 0.4), rgba(39, 38, 44, 0.4)),
+  //   linear-gradient(180deg, #8051d6 0%, #492286 100%);
+  // ${({ theme }) => theme.mediaQueries.md} {
+  //   padding: 0px;
+  //   background: linear-gradient(180deg, #8051d6 0%, #492286 100%);
+  // }
 `
 
 const InnerContainer = styled(Flex)`
@@ -81,7 +82,7 @@ const PhishingWarningBanner: React.FC<React.PropsWithChildren> = () => {
       ) : (
         <>
           <InnerContainer>
-            <img
+            {/* <img
               src="/images/decorations/phishing-warning-bunny.webp"
               alt="phishing-warning"
               width="92px"
@@ -92,7 +93,7 @@ const PhishingWarningBanner: React.FC<React.PropsWithChildren> = () => {
                   e.currentTarget.src = fallbackSrc
                 }
               }}
-            />
+            /> */}
             <SpeechBubble>{warningTextComponent}</SpeechBubble>
           </InnerContainer>
           <IconButton onClick={hideBanner} variant="text">

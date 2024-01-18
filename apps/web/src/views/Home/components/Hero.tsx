@@ -6,7 +6,7 @@ import ConnectWalletButton from 'components/ConnectWalletButton'
 import { ASSET_CDN } from 'config/constants/endpoints'
 import useTheme from 'hooks/useTheme'
 import { useLayoutEffect, useRef } from 'react'
-import { styled } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { useAccount } from 'wagmi'
 import { useDrawCanvas } from '../hooks/useDrawCanvas'
 import { useDrawSequenceImages } from '../hooks/useDrawSequence'
@@ -113,6 +113,19 @@ const StyledText = styled(Text)`
 const width = 1080
 const height = 1080
 
+const bounceAnimation = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+`
+
+const BouncingComponent = styled.div`
+  animation: ${bounceAnimation} 5s infinite ease-in-out;
+`
+
 const Hero = () => {
   const { t } = useTranslation()
   const { address: account } = useAccount()
@@ -201,10 +214,10 @@ const Hero = () => {
         `}
       </style>
       <BgWrapper>
-        <InnerWrapper>
+        {/* <InnerWrapper>
           <SlideSvgDark className="slide-svg-dark" width="100%" />
           <SlideSvgLight className="slide-svg-light" width="100%" />
-        </InnerWrapper>
+        </InnerWrapper> */}
       </BgWrapper>
       <Flex
         position="relative"
@@ -217,20 +230,20 @@ const Hero = () => {
       >
         <Flex flex="1" flexDirection="column">
           <Text textAlign={isMobile || isMd ? 'center' : 'left'} pr={isMobile ? 0 : '10px'} mb="16px">
-            <StyledText display="inline-block" lineHeight="110%" fontWeight={600} color="text" mr="8px">
+            <StyledText display="inline-block" lineHeight="110%" fontWeight={600} color="white" mr="8px">
               {t("Everyone's")}
             </StyledText>
             <StyledText
               display="inline-block"
               fontWeight={600}
               lineHeight="110%"
-              color="secondary"
+              color="primary"
               mr={isMobile ? 0 : '8px'}
             >
               {t('Favorite')}
             </StyledText>
             {isMobile && <br />}
-            <StyledText display="inline-block" lineHeight="110%" fontWeight={600} color="text">
+            <StyledText display="inline-block" lineHeight="110%" fontWeight={600} color="white">
               {t('DEX')}
             </StyledText>
           </Text>
@@ -251,7 +264,7 @@ const Hero = () => {
             <NextLinkFromReactRouter to="/swap">
               <Button
                 scale="md"
-                style={{ borderRadius: isXs ? 12 : undefined }}
+                style={{ borderRadius: isXs ? 12 : undefined, backgroundColor: '#FF720D', color: 'white' }}
                 variant={!account ? 'secondary' : 'primary'}
               >
                 {t('Trade Now')}
@@ -267,14 +280,14 @@ const Hero = () => {
           position="relative"
         >
           <BunnyWrapper>
-            <CakeBox>
+            <CakeBox style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <CakeCanvas
-                className={isIOS || isMobile ? 'is-ios' : undefined}
-                width={isIOS || isMobile ? 500 : width}
-                height={isIOS || isMobile ? 500 : height}
-                ref={canvasRef}
+              // className={isIOS || isMobile ? 'is-ios' : undefined}
+              // width={isIOS || isMobile ? 500 : width}
+              // height={isIOS || isMobile ? 500 : height}
+              // ref={canvasRef}
               />
-              {!(isIOS || isMobile) && (
+              {/* {!(isIOS || isMobile) && (
                 <VideoWrapper>
                   <CakeVideo ref={videoRef} width={width} autoPlay muted playsInline>
                     <source src={`${ASSET_CDN}/web/landing/bunnyv2.webm`} type="video/webm" />
@@ -295,7 +308,12 @@ const Hero = () => {
                     <source src={`${ASSET_CDN}/web/landing/rock03.webm`} type="video/webm" />
                   </CakeVideo>
                 </VideoWrapper>
-              )}
+              )} */}
+              <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <BouncingComponent>
+                  <img src="images/knightwizard.png" alt="img" />
+                </BouncingComponent>
+              </div>
             </CakeBox>
           </BunnyWrapper>
         </Flex>

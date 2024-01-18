@@ -5,7 +5,7 @@ import type SwiperCore from 'swiper'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import 'swiper/css/pagination'
-import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
+import { EffectFade, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useMultipleBannerConfig } from './hooks/useMultipleBannerConfig'
 
@@ -28,7 +28,8 @@ const BannerPlaceHolder = styled.div`
     left: 0px;
     right: 0px;
     bottom: 0px;
-    background: -webkit-linear-gradient(#7645d9 0%, #452a7a 100%);
+    background-image: url(images/bannerbg.png);
+    // background: -webkit-linear-gradient(#7645d9 0%, #452a7a 100%);
     ${({ theme }) => theme.mediaQueries.sm} {
       top: 20px;
       left: 20px;
@@ -61,6 +62,7 @@ const BannerPlaceHolder = styled.div`
 
 const StyledSwiper = styled(Swiper)`
   position: relative;
+  height: 100%;
   overflow: visible;
   opacity: 0;
   animation: ${appearAnimation} 0.3s ease-in-out 0.7s forwards;
@@ -115,14 +117,16 @@ const MultipleBanner: React.FC<React.PropsWithChildren> = () => {
     <BannerPlaceHolder>
       <StyledSwiper
         onSwiper={setSwiperRef}
-        modules={[Autoplay, Pagination, EffectFade]}
+        // modules={[Autoplay, Pagination, EffectFade]}
+        modules={[Pagination, EffectFade]}
         spaceBetween={50}
         observer
         slidesPerView={1}
         effect="fade"
         fadeEffect={{ crossFade: true }}
         speed={500}
-        autoplay={{ delay: 5000, pauseOnMouseEnter: true, disableOnInteraction: false }}
+        // autoplay={{ delay: 5000, pauseOnMouseEnter: true, disableOnInteraction: false }}
+        // autoplay={false}
         loop
         pagination={{ clickable: true }}
       >

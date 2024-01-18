@@ -16,7 +16,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${({ theme }) => theme.colors.background};
+    // background-color: ${({ theme }) => theme.colors.background};
+    background-image:url(images/mainbg.png);
 
     img {
       height: auto;

@@ -44,9 +44,9 @@ export const useMultipleBannerConfig = () => {
       },
       { shouldRender: isRenderIFOBanner || Boolean(countdown), banner: <NewIFOBanner /> },
       { shouldRender: true, banner: <GalxeTraverseBanner /> },
-      { shouldRender: true, banner: <WebNotificationBanner /> },
-      { shouldRender: true, banner: <VeCakeBanner /> },
-      { shouldRender: true, banner: <GameBanner /> },
+      // { shouldRender: true, banner: <WebNotificationBanner /> },
+      // { shouldRender: true, banner: <VeCakeBanner /> },
+      // { shouldRender: true, banner: <GameBanner /> },
     ]
 
     const SHUFFLE_BANNERS: IBannerConfig[] = [
