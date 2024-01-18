@@ -1,7 +1,5 @@
 import React from "react";
-import Svg from "../Svg";
 import { SvgProps } from "../types";
-import { vars } from "../../../css/vars.css";
 
 const Logo: React.FC<React.PropsWithChildren<SvgProps>> = (props) => {
   return (
@@ -37,7 +35,7 @@ const Logo: React.FC<React.PropsWithChildren<SvgProps>> = (props) => {
         height="51"
         viewBox="89.818 34.5 206.947 51"
         color="text"
-        class="sc-8a800401-0 fGhPpn"
+        className="sc-8a800401-0 fGhPpn"
       >
         <g data-name="Group 1103">
           <g data-name="Group 1101" fill="#fff" fill-rule="evenodd">
