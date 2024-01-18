@@ -1,8 +1,8 @@
+import { ChainId } from '@pancakeswap/chains'
 import { useTranslation } from '@pancakeswap/localization'
 import { Swap } from '@pancakeswap/widgets-internal'
-import { ChainId } from '@pancakeswap/chains'
-import { useActiveChainId } from 'hooks/useActiveChainId'
 import { EXCHANGE_HELP_URLS } from 'config/constants'
+import { useActiveChainId } from 'hooks/useActiveChainId'
 
 const Page: React.FC<
   React.PropsWithChildren<{
@@ -27,6 +27,7 @@ const Page: React.FC<
 
   return (
     <Swap.Page
+      style={{ background: 'transparent' }}
       removePadding={removePadding}
       noMinHeight={noMinHeight}
       hideFooterOnDesktop={hideFooterOnDesktop}
