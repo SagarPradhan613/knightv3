@@ -105,24 +105,23 @@ const ForthSection = () => {
         <TopContainer>
           <TopLeft>
             <Text>
-              <Text fontSize={['48px', null, '64px']} display="inline" fontWeight={600} lineHeight="110%">
-                {t('Unlock the Full Potential of DeFi with')}
-              </Text>
               <Text
                 fontWeight={600}
-                display="inline"
-                marginLeft={10}
+                display="block"
                 color={theme.isDark ? '#A881FC' : theme.colors.primary}
                 fontSize={['48px', null, '64px']}
                 lineHeight="110%"
               >
-                {t('KNIGHT')}
+                {t('Knight is')}
+              </Text>
+              <Text fontSize={['48px', null, '64px']} display="inline" fontWeight={600} lineHeight="110%">
+                {t(' protecting  the  crypto  space  ! ')}
               </Text>
             </Text>
             <Flex>
               <ParaText>
                 {t(
-                  'Experience the power of community ownership, global governance, and explore infinite use cases within the PancakeSwap ecosystem',
+                  'Knight token is at the heart of the KnightSwap ecosystem. Buy it, win it, farm it, spend it, stake it',
                 )}
               </ParaText>
             </Flex>
@@ -131,9 +130,7 @@ const ForthSection = () => {
                 <Button variant="primary">{t('Buy Knight')}</Button>
               </Link>
               <Link href="https://docs.pancakeswap.finance/governance-and-tokenomics/cake-tokenomics">
-                <Button pl="0" endIcon={<OpenNewIcon color="primary" />} variant="text">
-                  {t('Learn')}
-                </Button>
+                <Button variant="primary">{t('Learn')}</Button>
               </Link>
             </Flex>
           </TopLeft>

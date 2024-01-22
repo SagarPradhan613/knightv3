@@ -1,5 +1,6 @@
 import { usePreloadImages } from '@pancakeswap/hooks'
 import { useTranslation } from '@pancakeswap/localization'
+
 import {
   AtomBox,
   Button,
@@ -11,8 +12,6 @@ import {
   ModalWrapper,
   MoreHorizontalIcon,
   SvgProps,
-  Tab,
-  TabMenu,
   Text,
   WarningIcon,
 } from '@pancakeswap/uikit'
@@ -75,18 +74,26 @@ export function useSelectedWallet<T>() {
   return useAtom<WalletConfigV2<T> | null>(selectedWalletAtom)
 }
 
+// const ModalHead = styled.div`
+// width:100%;
+// display:flex;
+// padding-left:2rem;
+// padding-right:2rem;
+// justify-content:space-around;
+// `
+
 const TabContainer = ({ children, docLink, docText }: PropsWithChildren<{ docLink: string; docText: string }>) => {
   const [index, setIndex] = useState(0)
   const { t } = useTranslation()
 
   return (
     <AtomBox position="relative" zIndex="modal" className={modalWrapperClass}>
-      <AtomBox position="absolute" style={{ top: '-50px' }}>
+      {/* <AtomBox position="absolute" style={{ top: '-50px' }}>
         <TabMenu activeIndex={index} onItemClick={setIndex} gap="0px" isColorInverse isShowBorderBottom={false}>
           <Tab>{t('Connect Wallet')}</Tab>
           <Tab>{t('What’s a Web3 Wallet?')}</Tab>
         </TabMenu>
-      </AtomBox>
+      </AtomBox> */}
       <AtomBox
         display="flex"
         position="relative"
@@ -135,6 +142,21 @@ function MobileModal<T>({
 
   return (
     <AtomBox width="100%">
+      <div
+        style={{
+          width: '100%',
+          display: 'flex',
+          justifyContent: 'space-between',
+          paddingLeft: '1rem',
+          paddingRight: '1rem',
+          paddingTop: '1rem',
+          paddingBottom: '1rem',
+          alignItems: 'center',
+          backgroundColor: '#383241',
+        }}
+      >
+        <p>Connect Wallet</p>
+      </div>
       {error ? (
         <AtomBox
           display="flex"
@@ -150,13 +172,14 @@ function MobileModal<T>({
           </div>
         </AtomBox>
       ) : (
-        <Text color="textSubtle" small p="24px">
-          {t(
-            'Start by connecting with one of the wallets below. Be sure to store your private keys or seed phrase securely. Never share them with anyone.',
-          )}
-        </Text>
+        // <Text color="textSubtle" small p="24px">
+        //   {t(
+        //     'Start by connecting with one of the wallets below. Be sure to store your private keys or seed phrase securely. Never share them with anyone.',
+        //   )}
+        // </Text>
+        <></>
       )}
-      <AtomBox flex={1} py="16px" style={{ maxHeight: '230px' }} overflow="auto">
+      <AtomBox flex={1} py="16px" style={{ maxHeight: '230px', backgroundColor: '#1e2b45' }} overflow="auto">
         <WalletSelect
           displayCount={MOBILE_DEFAULT_DISPLAY_COUNT}
           wallets={walletsToShow}
@@ -168,7 +191,7 @@ function MobileModal<T>({
           }}
         />
       </AtomBox>
-      <AtomBox p="24px" borderTop="1">
+      <AtomBox p="24px" borderTop="1" style={{ backgroundColor: '#1e2b45' }}>
         <AtomBox>
           <Text textAlign="center" color="textSubtle" as="p" mb="24px">
             {t('Haven’t got a crypto wallet yet?')}
@@ -322,20 +345,32 @@ function DesktopModal<T>({
         display="flex"
         flexDirection="column"
         bg="backgroundAlt"
-        py="32px"
+        pb="32px"
         zIndex="modal"
         borderRadius="card"
         className={desktopWalletSelectionClass}
       >
-        <AtomBox px="48px">
-          <Heading color="color" as="h4">
-            {t('Connect Wallet')}
-          </Heading>
-          <Text color="textSubtle" small pt="24px" pb="32px">
+        <div
+          style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'space-between',
+            paddingLeft: '1rem',
+            paddingRight: '1rem',
+            paddingTop: '1.5rem',
+            paddingBottom: '1.5rem',
+            alignItems: 'center',
+            backgroundColor: '#383241',
+          }}
+        >
+          <p>Connect Wallet</p>
+        </div>
+        <AtomBox px="48px" pt="32px">
+          {/* <Text color="textSubtle" small pt="24px" pb="32px">
             {t(
               'Start by connecting with one of the wallets below. Be sure to store your private keys or seed phrase securely. Never share them with anyone.',
             )}
-          </Text>
+          </Text> */}
         </AtomBox>
         <WalletSelect
           wallets={wallets}
@@ -355,7 +390,7 @@ function DesktopModal<T>({
           }}
         />
       </AtomBox>
-      <AtomBox
+      {/* <AtomBox
         flex={1}
         mx="24px"
         display={{
@@ -383,7 +418,7 @@ function DesktopModal<T>({
           )}
           {selected && selected.installed === false && <NotInstalled qrCode={qrCode} wallet={selected} />}
         </AtomBox>
-      </AtomBox>
+      </AtomBox> */}
     </>
   )
 }

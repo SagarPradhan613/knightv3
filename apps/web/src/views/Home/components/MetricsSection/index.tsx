@@ -218,17 +218,25 @@ const Stats = () => {
               Trusted with <span style={{ color: '#FF720D', marginLeft: 'px' }}>Millions</span>{' '}
             </HeadingLine1>
           </HeadingContainer>
-          <Text textAlign="center" lineHeight="110%" fontWeight={400} mb="4px" fontSize={isMobile ? '18px' : '18px'}>
-            {t('Shaping the Future of Decentralized Trading:')}
+          <Text
+            width={isMobile || isMd ? '100%' : '60%'}
+            textAlign="center"
+            mb="4px"
+            fontSize={isMobile ? '18px' : '18px'}
+          >
+            {t(
+              'KnightSwap is your preeminent DeFi platform on BNB Chain, designed to ensure safe and sustainable yield farming for a community of discerning investors.',
+            )}
           </Text>
           <Text
+            color="#ff720d"
             textAlign="center"
             lineHeight="110%"
             fontWeight={400}
-            fontSize={isMobile ? '18px' : '18px'}
+            fontSize={isMobile ? '16px' : '16px'}
             mb={isMobile ? '32px' : '48px'}
           >
-            {t('PancakeSwap’s Unstoppable Expansion')}
+            {t('Are you ready to join the swelling tide?')}
           </Text>
           {/* <Flex
             justifyContent="center"
