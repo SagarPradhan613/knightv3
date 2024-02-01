@@ -231,7 +231,7 @@ const BannerButton = styled.button`
   padding: 0px 16px;
   background-color: var(--colors-primary);
   color: var(--colors-white);
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   margin-right: 30px;
 
   background-color: #ff720d;
@@ -426,9 +426,9 @@ export const GalxeTraverseBanner = () => {
             Join
           </a>
         </BannerButton>
-        <div style={{ position: 'absolute', bottom: '10px', right: '0', zIndex: '10' }}>
+        {/* <div style={{ position: 'absolute', bottom: '10px', right: '0', zIndex: '10' }}>
           <img src="images/coin1.png" alt="img" />
-        </div>
+        </div> */}
       </MobMainContainer>
     </>
   )

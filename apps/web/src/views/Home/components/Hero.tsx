@@ -2,7 +2,6 @@ import { useTranslation } from '@pancakeswap/localization'
 import { Button, Flex, Text, useMatchBreakpoints } from '@pancakeswap/uikit'
 import { NextLinkFromReactRouter } from '@pancakeswap/widgets-internal'
 
-import ConnectWalletButton from 'components/ConnectWalletButton'
 import { ASSET_CDN } from 'config/constants/endpoints'
 import useTheme from 'hooks/useTheme'
 import { useLayoutEffect, useRef } from 'react'
@@ -11,7 +10,6 @@ import { useAccount } from 'wagmi'
 import { useDrawCanvas } from '../hooks/useDrawCanvas'
 import { useDrawSequenceImages } from '../hooks/useDrawSequence'
 import { checkIsIOS, useIsIOS } from '../hooks/useIsIOS'
-import { SlideSvgDark, SlideSvgLight } from './SlideSvg'
 
 const BgWrapper = styled.div`
   z-index: -1;
@@ -293,7 +291,21 @@ const Hero = () => {
           </Text>
 
           <Flex justifyContent={isMobile || isMd ? 'center' : 'start'}>
-            {!account && <ConnectWalletButton style={{ borderRadius: isXs ? 12 : undefined }} scale="md" mr="8px" />}
+            {/* {!account && <ConnectWalletButton style={{ borderRadius: isXs ? 12 : undefined }} scale="md" mr="8px" />} */}
+            <a target="_blank" rel="noreferrer" href="https://knights.gitbook.io/knightswap/">
+              <Button
+                scale="md"
+                style={{
+                  borderRadius: isXs ? 12 : undefined,
+                  backgroundColor: '#FF720D',
+                  color: 'white',
+                  marginRight: '10px',
+                }}
+                variant={!account ? 'secondary' : 'primary'}
+              >
+                {t('Learn')}
+              </Button>
+            </a>
             <NextLinkFromReactRouter to="/swap">
               <Button
                 scale="md"

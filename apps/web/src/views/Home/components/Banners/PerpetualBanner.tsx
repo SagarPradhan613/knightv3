@@ -129,7 +129,7 @@ const BannerButton = styled.button`
   padding: 0px 16px;
   background-color: var(--colors-primary);
   color: var(--colors-white);
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   margin-right: 30px;
 
   background-color: #ff720d;
