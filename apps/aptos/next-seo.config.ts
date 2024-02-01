@@ -1,19 +1,19 @@
 import { DefaultSeoProps } from 'next-seo'
 
 export const SEO: DefaultSeoProps = {
-  titleTemplate: '%s | PancakeSwap',
-  defaultTitle: 'PancakeSwap',
+  titleTemplate: '%s | KnightSwap',
+  defaultTitle: 'KnightSwap',
   description:
-    'The most popular AMM DEX on BSC is now on Aptos! Swap your favourite tokens instantly and provide liquidity to start earning from trading fees. Earn CAKE through yield farming, and stake them to earn more tokens, or use them to buy new tokens in initial farm offerings—all on a platform you can trust.',
+    'KnightSwap is the preeminent decentralized exchange (DEX) on Binance Smart Chain (BSC)  built for reliable & sustainable yields while providing the highest quality Decentralized Finance (DeFi) experience',
   twitter: {
     cardType: 'summary_large_image',
-    handle: '@PancakeSwap',
-    site: '@PancakeSwap',
+    handle: '@KnightSwap',
+    site: '@KnightSwap',
   },
   openGraph: {
-    title: '🥞 PancakeSwap - The most popular DeFi exchange on BSC, now on Aptos',
+    title: '🥞 KnightSwap - The most popular DeFi exchange on BSC, now on Aptos',
     description:
-      'The most popular AMM on BSC is now on Aptos! Swap your favourite tokens instantly and provide liquidity to start earning from trading fees. Earn CAKE through yield farming, and stake them to earn more tokens, or use them to buy new tokens in initial farm offerings—all on a platform you can trust.',
+      'KnightSwap is the preeminent decentralized exchange (DEX) on Binance Smart Chain (BSC)  built for reliable & sustainable yields while providing the highest quality Decentralized Finance (DeFi) experience',
     images: [{ url: 'https://aptos.pancakeswap.finance/images/hero.jpeg' }],
   },
 }

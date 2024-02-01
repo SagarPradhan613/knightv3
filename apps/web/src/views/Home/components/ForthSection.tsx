@@ -129,7 +129,7 @@ const ForthSection = () => {
               <Link href="https://pancakeswap.finance/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82&chainId=56">
                 <Button variant="primary">{t('Buy Knight')}</Button>
               </Link>
-              <Link href="https://docs.pancakeswap.finance/governance-and-tokenomics/cake-tokenomics">
+              <Link href="https://knights.gitbook.io/knightswap/">
                 <Button variant="primary">{t('Learn')}</Button>
               </Link>
             </Flex>

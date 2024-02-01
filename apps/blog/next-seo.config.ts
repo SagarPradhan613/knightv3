@@ -1,10 +1,10 @@
 import { DefaultSeoProps } from 'next-seo'
 
 export const SEO: DefaultSeoProps = {
-  titleTemplate: '%s | PancakeSwap',
-  defaultTitle: 'Blog | PancakeSwap',
+  titleTemplate: '%s | KnightSwap',
+  defaultTitle: 'Blog | KnightSwap',
   description:
-    'Cheaper and faster than Uniswap? Discover PancakeSwap, the leading DEX on BNB Smart Chain (BSC) with the best farms in DeFi and a lottery for CAKE.',
+    'KnightSwap is the preeminent decentralized exchange (DEX) on Binance Smart Chain (BSC)  built for reliable & sustainable yields while providing the highest quality Decentralized Finance (DeFi) experience',
   twitter: {
     cardType: 'summary_large_image',
     handle: '@PancakeSwap',
@@ -13,7 +13,7 @@ export const SEO: DefaultSeoProps = {
   openGraph: {
     title: '🥞 PancakeSwap - A next evolution DeFi exchange on BNB Smart Chain (BSC)',
     description:
-      'The most popular AMM on BSC! Earn CAKE through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by PancakeSwap), NFTs, and more, on a platform you can trust.',
+      'KnightSwap is the preeminent decentralized exchange (DEX) on Binance Smart Chain (BSC)  built for reliable & sustainable yields while providing the highest quality Decentralized Finance (DeFi) experience',
     images: [{ url: 'https://assets.pancakeswap.finance/web/og/v2/hero.jpg' }],
   },
 }

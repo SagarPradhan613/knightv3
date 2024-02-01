@@ -141,54 +141,76 @@ const config: (
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
     {
-      label: t('Game'),
+      label: t('Lottery'),
       icon: PancakeProtectorIcon,
       hideSubNav: true,
       href: 'https://pancakeswap.games/',
       items: [
-        {
-          label: t('Gaming Marketplace'),
-          href: 'https://pancakeswap.games/',
-          type: DropdownMenuItemType.EXTERNAL_LINK,
-        },
-        {
-          label: t('Prediction (BETA)'),
-          href: '/prediction',
-          image: '/images/decorations/prediction.png',
-          supportChainIds: PREDICTION_SUPPORTED_CHAINS,
-        },
+        // {
+        //   label: t('Gaming Marketplace'),
+        //   href: 'https://pancakeswap.games/',
+        //   type: DropdownMenuItemType.EXTERNAL_LINK,
+        // },
+        // {
+        //   label: t('Prediction (BETA)'),
+        //   href: '/prediction',
+        //   image: '/images/decorations/prediction.png',
+        //   supportChainIds: PREDICTION_SUPPORTED_CHAINS,
+        // },
         {
           label: t('Lottery'),
           href: '/lottery',
           image: '/images/decorations/lottery.png',
         },
-        {
-          label: t('Pottery (BETA)'),
-          href: '/pottery',
-          image: '/images/decorations/lottery.png',
-        },
+        // {
+        //   label: t('Pottery (BETA)'),
+        //   href: '/pottery',
+        //   image: '/images/decorations/lottery.png',
+        // },
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
+    // {
+    //   label: t('NFT'),
+    //   href: `${nftsBaseUrl}`,
+    //   icon: NftIcon,
+    //   fillIcon: NftFillIcon,
+    //   supportChainIds: SUPPORT_ONLY_BSC,
+    //   image: '/images/decorations/nft.png',
+    //   items: [
+    //     {
+    //       label: t('Overview'),
+    //       href: `${nftsBaseUrl}`,
+    //     },
+    //     {
+    //       label: t('Collections'),
+    //       href: `${nftsBaseUrl}/collections`,
+    //     },
+    //     {
+    //       label: t('Activity'),
+    //       href: `${nftsBaseUrl}/activity`,
+    //     },
+    //   ],
+    // },
     {
-      label: t('NFT'),
-      href: `${nftsBaseUrl}`,
+      label: t('Paladin'),
+      href: '/nfts',
       icon: NftIcon,
       fillIcon: NftFillIcon,
       supportChainIds: SUPPORT_ONLY_BSC,
       image: '/images/decorations/nft.png',
       items: [
         {
-          label: t('Overview'),
-          href: `${nftsBaseUrl}`,
+          label: t('Paladin'),
+          href: '/paladin',
         },
-        {
-          label: t('Collections'),
-          href: `${nftsBaseUrl}/collections`,
-        },
-        {
-          label: t('Activity'),
-          href: `${nftsBaseUrl}/activity`,
-        },
+        // {
+        //   label: t('Collections'),
+        //   href: `${nftsBaseUrl}/collections`,
+        // },
+        // {
+        //   label: t('Activity'),
+        //   href: `${nftsBaseUrl}/activity`,
+        // },
       ],
     },
     {
@@ -202,41 +224,53 @@ const config: (
           href: '/info/v3',
         },
         {
-          label: t('IFO'),
-          href: '/ifo',
-          supportChainIds: IFO_SUPPORTED_CHAINS,
-          image: '/images/ifos/ifo-bunny.png',
+          label: t('Lending'),
+          href: 'https://lending.knightswap.financial/',
         },
         {
-          label: t('Affiliate Program'),
-          href: '/affiliates-program',
+          label: t('Castle'),
+          href: 'https://www.knightcompounder.com/#/bsc',
         },
         {
-          label: t('Voting'),
-          href: '/voting',
-          supportChainIds: SUPPORT_ONLY_BSC,
-          image: '/images/voting/voting-bunny.png',
+          label: t('IKO'),
+          href: '/iko',
         },
+        // {
+        //   label: t('IFO'),
+        //   href: '/ifo',
+        //   supportChainIds: IFO_SUPPORTED_CHAINS,
+        //   image: '/images/ifos/ifo-bunny.png',
+        // },
+        // {
+        //   label: t('Affiliate Program'),
+        //   href: '/affiliates-program',
+        // },
+        // {
+        //   label: t('Voting'),
+        //   href: '/voting',
+        //   supportChainIds: SUPPORT_ONLY_BSC,
+        //   image: '/images/voting/voting-bunny.png',
+        // },
         {
           type: DropdownMenuItemType.DIVIDER,
         },
-        {
-          label: t('Leaderboard'),
-          href: '/teams',
-          supportChainIds: SUPPORT_ONLY_BSC,
-          image: '/images/decorations/leaderboard.png',
-        },
-        {
-          type: DropdownMenuItemType.DIVIDER,
-        },
+        // {
+        //   label: t('Leaderboard'),
+        //   href: '/teams',
+        //   supportChainIds: SUPPORT_ONLY_BSC,
+        //   image: '/images/decorations/leaderboard.png',
+        // },
+        // {
+        //   type: DropdownMenuItemType.DIVIDER,
+        // },
         {
           label: t('Blog'),
-          href: 'https://blog.pancakeswap.finance',
+          href: 'https://medium.com/knight-bsc-dark-knight-ftm',
           type: DropdownMenuItemType.EXTERNAL_LINK,
         },
         {
           label: t('Docs'),
-          href: 'https://docs.pancakeswap.finance',
+          href: 'https://knights.gitbook.io/knightswap/',
           type: DropdownMenuItemType.EXTERNAL_LINK,
         },
       ].map((item) => addMenuItemSupported(item, chainId)),

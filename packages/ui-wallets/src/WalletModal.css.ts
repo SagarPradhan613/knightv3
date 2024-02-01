@@ -69,7 +69,7 @@ export const walletSelectWrapperClass = style(
       gridTemplateColumns: '1fr 1fr',
     },
     lg: {
-      gridTemplateColumns: '1fr 1fr 1fr',
+      gridTemplateColumns: '1fr 1fr ',
     },
   }),
 )

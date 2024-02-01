@@ -14,6 +14,7 @@ import {
   SvgProps,
   Text,
   WarningIcon,
+  CloseIcon,
 } from '@pancakeswap/uikit'
 import { atom, useAtom } from 'jotai'
 import { PropsWithChildren, Suspense, lazy, useMemo, useState } from 'react'
@@ -124,8 +125,10 @@ function MobileModal<T>({
   connectWallet,
   docLink,
   docText,
+  onDismiss,
 }: Pick<WalletModalV2Props<T>, 'wallets' | 'docLink' | 'docText'> & {
   connectWallet: (wallet: WalletConfigV2<T>) => void
+  onDismiss?: () => void // Make onDismiss optional
 }) {
   const { t } = useTranslation()
 
@@ -141,7 +144,15 @@ function MobileModal<T>({
   })
 
   return (
-    <AtomBox width="100%">
+    <AtomBox
+      display="flex"
+      flexDirection="column"
+      bg="backgroundAlt"
+      pb="32px"
+      zIndex="modal"
+      borderRadius="card"
+      className={desktopWalletSelectionClass}
+    >
       <div
         style={{
           width: '100%',
@@ -149,48 +160,37 @@ function MobileModal<T>({
           justifyContent: 'space-between',
           paddingLeft: '1rem',
           paddingRight: '1rem',
-          paddingTop: '1rem',
-          paddingBottom: '1rem',
+          paddingTop: '1.5rem',
+          paddingBottom: '1.5rem',
           alignItems: 'center',
-          backgroundColor: '#383241',
+          background: 'linear-gradient(139.73deg,#313d5c,#3d2a54)',
+          borderTopLeftRadius: '24px',
+          borderTopRightRadius: '24px',
         }}
       >
-        <p>Connect Wallet</p>
+        <p style={{ color: '#b8cbef', fontWeight: '600', fontSize: '20px' }}>Connect Wallet</p>
+
+        <Button variant="text" onClick={onDismiss} px={0} height="fit-content">
+          <CloseIcon color="textSubtle" />
+        </Button>
       </div>
-      {error ? (
-        <AtomBox
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          style={{ gap: '24px' }}
-          textAlign="center"
-          p="24px"
-        >
-          {selected && typeof selected.icon === 'string' && <Image src={selected.icon} width={108} height={108} />}
-          <div style={{ maxWidth: '246px' }}>
-            <ErrorMessage message={error} />
-          </div>
-        </AtomBox>
-      ) : (
-        // <Text color="textSubtle" small p="24px">
-        //   {t(
-        //     'Start by connecting with one of the wallets below. Be sure to store your private keys or seed phrase securely. Never share them with anyone.',
-        //   )}
-        // </Text>
-        <></>
-      )}
-      <AtomBox flex={1} py="16px" style={{ maxHeight: '230px', backgroundColor: '#1e2b45' }} overflow="auto">
-        <WalletSelect
-          displayCount={MOBILE_DEFAULT_DISPLAY_COUNT}
-          wallets={walletsToShow}
-          onClick={(wallet) => {
-            connectWallet(wallet)
-            if (wallet.deepLink && wallet.installed === false) {
-              window.open(wallet.deepLink)
-            }
-          }}
-        />
-      </AtomBox>
+      {/* <AtomBox px="48px" pt="32px">
+      <Text color="textSubtle" small pt="24px" pb="32px">
+        {t(
+          'Start by connecting with one of the wallets below. Be sure to store your private keys or seed phrase securely. Never share them with anyone.',
+        )}
+      </Text>
+    </AtomBox> */}
+      <WalletSelect
+        displayCount={MOBILE_DEFAULT_DISPLAY_COUNT}
+        wallets={walletsToShow}
+        onClick={(wallet) => {
+          connectWallet(wallet)
+          if (wallet.deepLink && wallet.installed === false) {
+            window.open(wallet.deepLink)
+          }
+        }}
+      />
       <AtomBox p="24px" borderTop="1" style={{ backgroundColor: '#1e2b45' }}>
         <AtomBox>
           <Text textAlign="center" color="textSubtle" as="p" mb="24px">
@@ -222,10 +222,15 @@ function WalletSelect<T>({
   return (
     <AtomBox
       display="grid"
+      style={{
+        maxHeight: '453px',
+        overflowY: 'auto',
+        paddingTop: '24px',
+        paddingBottom: '24px',
+      }}
       overflowY="auto"
       overflowX="hidden"
       px={{ xs: '16px', sm: '48px' }}
-      pb="12px"
       className={walletSelectWrapperClass}
     >
       {walletsToShow.map((wallet) => {
@@ -323,8 +328,10 @@ function DesktopModal<T>({
   connectWallet,
   docLink,
   docText,
+  onDismiss,
 }: Pick<WalletModalV2Props<T>, 'wallets' | 'docLink' | 'docText'> & {
   connectWallet: (wallet: WalletConfigV2<T>) => void
+  onDismiss?: () => void // Make onDismiss optional
 }) {
   const wallets: WalletConfigV2<T>[] = wallets_.filter((w) => {
     return w.installed !== false || (!w.installed && (w.guide || w.downloadLink || w.qrCode))
@@ -360,18 +367,24 @@ function DesktopModal<T>({
             paddingTop: '1.5rem',
             paddingBottom: '1.5rem',
             alignItems: 'center',
-            backgroundColor: '#383241',
+            background: 'linear-gradient(139.73deg,#313d5c,#3d2a54)',
+            borderTopLeftRadius: '24px',
+            borderTopRightRadius: '24px',
           }}
         >
-          <p>Connect Wallet</p>
+          <p style={{ color: '#b8cbef', fontWeight: '600', fontSize: '20px' }}>Connect Wallet</p>
+
+          <Button variant="text" onClick={onDismiss} px={0} height="fit-content">
+            <CloseIcon color="textSubtle" />
+          </Button>
         </div>
-        <AtomBox px="48px" pt="32px">
-          {/* <Text color="textSubtle" small pt="24px" pb="32px">
+        {/* <AtomBox px="48px" pt="32px">
+          <Text color="textSubtle" small pt="24px" pb="32px">
             {t(
               'Start by connecting with one of the wallets below. Be sure to store your private keys or seed phrase securely. Never share them with anyone.',
             )}
-          </Text> */}
-        </AtomBox>
+          </Text>
+        </AtomBox> */}
         <WalletSelect
           wallets={wallets}
           onClick={(w) => {
@@ -389,6 +402,16 @@ function DesktopModal<T>({
             }
           }}
         />
+        <AtomBox p="24px" borderTop="1" style={{ backgroundColor: '#1e2b45' }}>
+          <AtomBox>
+            <Text textAlign="center" color="textSubtle" as="p" mb="24px">
+              {t('Haven’t got a crypto wallet yet?')}
+            </Text>
+          </AtomBox>
+          <Button as="a" href={docLink} variant="subtle" width="100%" external>
+            {docText}
+          </Button>
+        </AtomBox>
       </AtomBox>
       {/* <AtomBox
         flex={1}
@@ -477,9 +500,21 @@ export function WalletModalV2<T = unknown>(props: WalletModalV2Props<T>) {
         <AtomBox position="relative">
           <TabContainer docLink={docLink} docText={docText}>
             {isMobile ? (
-              <MobileModal connectWallet={connectWallet} wallets={wallets} docLink={docLink} docText={docText} />
+              <MobileModal
+                onDismiss={props.onDismiss}
+                connectWallet={connectWallet}
+                wallets={wallets}
+                docLink={docLink}
+                docText={docText}
+              />
             ) : (
-              <DesktopModal connectWallet={connectWallet} wallets={wallets} docLink={docLink} docText={docText} />
+              <DesktopModal
+                onDismiss={props.onDismiss}
+                connectWallet={connectWallet}
+                wallets={wallets}
+                docLink={docLink}
+                docText={docText}
+              />
             )}
           </TabContainer>
         </AtomBox>
