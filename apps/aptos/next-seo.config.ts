@@ -14,6 +14,6 @@ export const SEO: DefaultSeoProps = {
     title: '🥞 KnightSwap - The most popular DeFi exchange on BSC, now on Aptos',
     description:
       'KnightSwap is the preeminent decentralized exchange (DEX) on Binance Smart Chain (BSC)  built for reliable & sustainable yields while providing the highest quality Decentralized Finance (DeFi) experience',
-    images: [{ url: 'https://aptos.pancakeswap.finance/images/hero.jpeg' }],
+    // images: [{ url: 'https://aptos.pancakeswap.finance/images/hero.jpeg' }],
   },
 }

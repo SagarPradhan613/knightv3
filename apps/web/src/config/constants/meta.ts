@@ -7,7 +7,7 @@ export const DEFAULT_META: PageMeta = {
   title: 'KnightSwap',
   description:
     'KnightSwap is the preeminent decentralized exchange (DEX) on Binance Smart Chain (BSC)  built for reliable & sustainable yields while providing the highest quality Decentralized Finance (DeFi) experience',
-  image: `${ASSET_CDN}/web/og/hero.jpg`,
+  // image: `${ASSET_CDN}/web/og/hero.jpg`,
 }
 
 interface PathList {
