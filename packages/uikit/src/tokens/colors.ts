@@ -33,7 +33,7 @@ export const lightColors = {
   backgroundDisabled: "#E9EAEB",
   // backgroundAlt: "#FFFFFF",
   backgroundAlt: "#1e2b45",
-  backgroundAlt2: "rgba(255, 255, 255, 0.7)",
+  backgroundAlt2: "rgba(39,38,44,.7)",
   // cardBorder: "#E7E3EB",
   cardBorder: "#383241",
 

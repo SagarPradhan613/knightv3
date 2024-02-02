@@ -68,7 +68,7 @@ export const SwapLineChart: React.FC<SwapLineChartNewProps> = ({
     const chart = createChart(chartRef?.current, {
       layout: {
         background: { color: "transparent" },
-        textColor: isDark ? "#F4EEFF" : "#280D5F",
+        textColor: isDark ? "#B8EFE6" : "#B8EFE6",
       },
       autoSize: true,
       handleScale: false,
