@@ -30,15 +30,15 @@ const PoolTypeTag = ({ account, vaultKey, isLocked, children }) => {
       {vaultKey ? (
         account ? (
           isLocked ? (
-            <LockedPoolTag />
+            <LockedPoolTag style={{ backgroundColor: '#1f2b46' }} />
           ) : (
-            <CompoundingPoolTag />
+            <CompoundingPoolTag style={{ backgroundColor: '#1f2b46' }} />
           )
         ) : (
-          <LockedOrAutoPoolTag />
+          <LockedOrAutoPoolTag style={{ backgroundColor: '#1f2b46' }} />
         )
       ) : (
-        <ManualPoolTag />
+        <ManualPoolTag style={{ backgroundColor: '#1f2b46' }} />
       )}
       {tooltipVisible && tooltip}
       {children(targetRef)}

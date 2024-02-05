@@ -43,7 +43,7 @@ const Footer: React.FC<React.PropsWithChildren<FooterProps>> = ({
   const [isExpanded, setIsExpanded] = useState(defaultExpanded || false)
 
   return (
-    <CardFooter>
+    <CardFooter style={{ background: '#121D32' }}>
       <ExpandableButtonWrapper>
         <Flex alignItems="center">
           <PoolTypeTag vaultKey={vaultKey} isLocked={isLocked} account={account}>

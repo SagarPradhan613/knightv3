@@ -59,7 +59,7 @@ export function PoolCard<T>({
           </Flex>
         )}
       </PoolCardHeader>
-      <CardBody>
+      <CardBody style={{ backgroundColor: "#121D32" }}>
         {aprRow}
         <Flex mt="24px" flexDirection="column">
           {cardContent}
