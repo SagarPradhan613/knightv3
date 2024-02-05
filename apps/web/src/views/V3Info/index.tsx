@@ -110,6 +110,7 @@ export default function Home() {
   }, [liquidityHover])
 
   return (
+    // <div style={{ width: "100%", backgroundImage: "url(/images/mainbg.png)" }}>
     <Page>
       <Heading scale="lg" mb="16px">
         {t('PancakeSwap Info & Analytics')}
@@ -246,5 +247,6 @@ export default function Home() {
 
       {transactionData ? <TransactionsTable transactions={transactionData} /> : null}
     </Page>
+    // </div>
   )
 }
