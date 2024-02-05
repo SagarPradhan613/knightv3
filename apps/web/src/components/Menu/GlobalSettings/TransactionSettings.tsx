@@ -129,9 +129,11 @@ const SlippageTabs = () => {
           >
             1.0%
           </Button>
+
           <Flex alignItems="center">
             <Box width="76px" mt="4px">
               <Input
+                style={{ border: 'none' }}
                 scale="sm"
                 inputMode="decimal"
                 pattern="^[0-9]*[.,]?[0-9]{0,2}$"
@@ -176,6 +178,7 @@ const SlippageTabs = () => {
         <Flex>
           <Box width="52px" mt="4px">
             <Input
+              style={{ border: 'none' }}
               scale="sm"
               inputMode="numeric"
               pattern="^[0-9]+$"

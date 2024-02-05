@@ -32,6 +32,46 @@ const getHeight = ({ scale = scales.MD }: StyledInputProps) => {
   }
 };
 
+// const Input = styled("input").withConfig({
+//   shouldForwardProp: (props) => !["scale", "isSuccess", "isWarning"].includes(props),
+// })<InputProps>`
+//   background-color: ${({ theme }) => theme.colors.input};
+//   border-radius: 16px;
+//   box-shadow: ${getBoxShadow};
+//   color: ${({ theme }) => theme.colors.text};
+//   display: block;
+//   font-size: 16px;
+//   height: ${getHeight};
+//   outline: 0;
+//   padding: 0 16px;
+//   width: 100%;
+//   border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
+
+//   &::placeholder {
+//     color: ${({ theme }) => theme.colors.textSubtle};
+//   }
+
+//   &:disabled {
+//     background-color: ${({ theme }) => theme.colors.backgroundDisabled};
+//     box-shadow: none;
+//     color: ${({ theme }) => theme.colors.textDisabled};
+//     cursor: not-allowed;
+//   }
+
+//   &:focus:not(:disabled) {
+//     box-shadow: ${({ theme, isWarning, isSuccess }) => {
+//       if (isWarning) {
+//         return theme.shadows.warning;
+//       }
+
+//       if (isSuccess) {
+//         return theme.shadows.success;
+//       }
+//       return theme.shadows.focus;
+//     }};
+//   }
+// `;
+
 const Input = styled("input").withConfig({
   shouldForwardProp: (props) => !["scale", "isSuccess", "isWarning"].includes(props),
 })<InputProps>`
@@ -45,7 +85,7 @@ const Input = styled("input").withConfig({
   outline: 0;
   padding: 0 16px;
   width: 100%;
-  border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
+  border: none;
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.textSubtle};

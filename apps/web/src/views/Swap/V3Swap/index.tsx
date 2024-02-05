@@ -39,7 +39,7 @@ export function V3SwapForm() {
   const insufficientFundCurrency = useCheckInsufficientError(trade)
 
   return (
-    <>
+    <div style={{ backgroundColor: '#121D32' }}>
       <FormHeader onRefresh={throttledHandleRefresh} refreshDisabled={!tradeLoaded || syncing || !isStale} />
       <FormMain
         tradeLoading={mm.isMMBetter ? false : !tradeLoaded}
@@ -67,6 +67,6 @@ export function V3SwapForm() {
           <MMLiquidityWarning />
         </Box>
       )}
-    </>
+    </div>
   )
 }

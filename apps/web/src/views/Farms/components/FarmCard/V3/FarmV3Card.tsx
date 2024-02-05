@@ -99,7 +99,7 @@ export const FarmV3Card: React.FC<React.PropsWithChildren<FarmCardProps>> = ({ f
 
   return (
     <StyledCard isActive={isPromotedFarm}>
-      <FarmCardInnerContainer>
+      <FarmCardInnerContainer style={{ backgroundColor: '#121D32' }}>
         <CardHeading
           lpLabel={lpLabel}
           merklLink={merklLink}
@@ -136,7 +136,7 @@ export const FarmV3Card: React.FC<React.PropsWithChildren<FarmCardProps>> = ({ f
         )}
         <CardActionsContainer farm={farm} lpLabel={lpLabel} account={account} />
       </FarmCardInnerContainer>
-      <ExpandingWrapper>
+      <ExpandingWrapper style={{ backgroundColor: '#121D32' }}>
         <ExpandableSectionButton onClick={toggleExpandableSection} expanded={showExpandableSection} />
         {showExpandableSection && (
           <>

@@ -5,6 +5,20 @@ import { useTranslation } from '@pancakeswap/localization'
 import { useAccount, useAccountBalance } from '@pancakeswap/awgmi'
 import { CurrencyLogo } from 'components/Logo/CurrencyLogo'
 
+// const DropDownHeader = styled.div`
+//   width: 100%;
+//   height: 40px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 0px 16px;
+//   box-shadow: ${({ theme }) => theme.shadows.inset};
+//   border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
+//   border-radius: 16px;
+//   background: ${({ theme }) => theme.colors.input};
+//   transition: border-radius 0.15s;
+// `
+
 const DropDownHeader = styled.div`
   width: 100%;
   height: 40px;
@@ -13,7 +27,6 @@ const DropDownHeader = styled.div`
   justify-content: space-between;
   padding: 0px 16px;
   box-shadow: ${({ theme }) => theme.shadows.inset};
-  border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
   border-radius: 16px;
   background: ${({ theme }) => theme.colors.input};
   transition: border-radius 0.15s;
