@@ -21,15 +21,12 @@ export const MetricsCard: React.FC<MetricsCardProps> = ({ title, value, descript
   const { isMobile } = useMatchBreakpoints()
   return (
     <Box {...rest}>
-      <Text fontSize={isMobile ? '16px' : '20px'} textAlign="center" fontWeight={600} lineHeight="120%">
-        {title}
-      </Text>
       <Text
         lineHeight="110%"
         textAlign="center"
         fontWeight={600}
         fontSize={isMobile ? '32px' : '40px'}
-        color={theme.colors.secondary}
+        color={theme.colors.primary}
       >
         <CountUp
           start={0}
@@ -45,7 +42,10 @@ export const MetricsCard: React.FC<MetricsCardProps> = ({ title, value, descript
           {({ countUpRef }) => <span ref={countUpRef} />}
         </CountUp>
       </Text>
-      <Text
+      <Text fontSize={isMobile ? '16px' : '40px'} textAlign="center" fontWeight={600} lineHeight="120%">
+        {title}
+      </Text>
+      {/* <Text
         fontSize={isMobile ? '14px' : '16px'}
         textAlign="center"
         fontWeight={600}
@@ -53,7 +53,7 @@ export const MetricsCard: React.FC<MetricsCardProps> = ({ title, value, descript
         color={theme.colors.textSubtle}
       >
         {description}
-      </Text>
+      </Text> */}
     </Box>
   )
 }

@@ -33,11 +33,11 @@ export const modalWrapperClass = style([
       width: '100%',
       marginBottom: 0,
     },
-    md: {
-      height: '490px',
-    },
+    // md: {
+    //   height: '490px',
+    // },
     lg: {
-      width: '792px',
+      width: '100%',
     },
   }),
 ])
@@ -69,7 +69,7 @@ export const walletSelectWrapperClass = style(
       gridTemplateColumns: '1fr 1fr',
     },
     lg: {
-      gridTemplateColumns: '1fr 1fr 1fr',
+      gridTemplateColumns: '1fr 1fr ',
     },
   }),
 )

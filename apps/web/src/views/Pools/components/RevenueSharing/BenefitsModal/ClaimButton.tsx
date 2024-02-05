@@ -42,7 +42,6 @@ const ClaimButton: React.FunctionComponent<React.PropsWithChildren<ClaimButtonPr
       console.error('[ERROR] Submit Revenue Claim Button', error)
     }
   }, [account, chainId, contract, fetchWithCatchTxError, onDismiss, t, toastSuccess])
-
   return (
     <Button mt="24px" width="100%" variant="subtle" disabled={!isReady} onClick={handleClaim}>
       {t('Claim')}

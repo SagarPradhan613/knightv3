@@ -139,11 +139,13 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
         {mode === SettingsMode.GLOBAL && (
           <>
             <Flex pb="24px" flexDirection="column">
-              <PreTitle mb="24px">{t('Global')}</PreTitle>
-              <Flex justifyContent="space-between" mb="24px">
+              <PreTitle fontSize="18px" mb="24px">
+                {t('Global')}
+              </PreTitle>
+              {/* <Flex justifyContent="space-between" mb="24px">
                 <Text>{t('Dark mode')}</Text>
                 <ThemeSwitcher isDark={isDark} toggleTheme={() => setTheme(isDark ? 'light' : 'dark')} />
-              </Flex>
+              </Flex> */}
               <Flex justifyContent="space-between" alignItems="center" mb="24px">
                 <Flex alignItems="center">
                   <Text>{t('Subgraph Health Indicator')}</Text>

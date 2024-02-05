@@ -2,16 +2,14 @@ import { useTranslation } from '@pancakeswap/localization'
 import { Button, Flex, Text, useMatchBreakpoints } from '@pancakeswap/uikit'
 import { NextLinkFromReactRouter } from '@pancakeswap/widgets-internal'
 
-import ConnectWalletButton from 'components/ConnectWalletButton'
 import { ASSET_CDN } from 'config/constants/endpoints'
 import useTheme from 'hooks/useTheme'
 import { useLayoutEffect, useRef } from 'react'
-import { styled } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { useAccount } from 'wagmi'
 import { useDrawCanvas } from '../hooks/useDrawCanvas'
 import { useDrawSequenceImages } from '../hooks/useDrawSequence'
 import { checkIsIOS, useIsIOS } from '../hooks/useIsIOS'
-import { SlideSvgDark, SlideSvgLight } from './SlideSvg'
 
 const BgWrapper = styled.div`
   z-index: -1;
@@ -98,21 +96,76 @@ const CakeCanvas = styled.canvas`
 `
 
 const StyledText = styled(Text)`
-  font-size: 32px;
+  // font-size: 32px;
   ${({ theme }) => theme.mediaQueries.sm} {
-    font-size: 40px;
+    font-size: 32px;
   }
   ${({ theme }) => theme.mediaQueries.lg} {
-    font-size: 64px;
+    font-size: 40px;
   }
   ${({ theme }) => theme.mediaQueries.xxl} {
-    font-size: 88px;
+    font-size: 40px;
   }
 `
 
 const width = 1080
 const height = 1080
 
+const bounceAnimation = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+`
+
+const BouncingComponent = styled.div`
+  animation: ${bounceAnimation} 5s infinite ease-in-out;
+`
+const SmallHeader = styled.p`
+  display: block;
+  line-height: 110%;
+  font-weight: 600;
+  color: white;
+  margin-right: 8px;
+  @media only screen and (max-width: 600px) {
+    font-size: 32px;
+  }
+
+  /* Tablets */
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+    font-size: 32px;
+  }
+
+  /* Desktops */
+  @media only screen and (min-width: 1025px) {
+    font-size: 40px;
+  }
+`
+
+const BigHeader = styled.p`
+  display: inline-block;
+  font-weight: 600;
+  line-height: 110%;
+  color: #ff720d;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 48px;
+  }
+
+  /* Tablets */
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+    font-size: 48px;
+    margin-right: 8px;
+  }
+
+  /* Desktops */
+  @media only screen and (min-width: 1025px) {
+    font-size: 64px;
+    margin-right: 8px;
+  }
+`
 const Hero = () => {
   const { t } = useTranslation()
   const { address: account } = useAccount()
@@ -201,10 +254,10 @@ const Hero = () => {
         `}
       </style>
       <BgWrapper>
-        <InnerWrapper>
+        {/* <InnerWrapper>
           <SlideSvgDark className="slide-svg-dark" width="100%" />
           <SlideSvgLight className="slide-svg-light" width="100%" />
-        </InnerWrapper>
+        </InnerWrapper> */}
       </BgWrapper>
       <Flex
         position="relative"
@@ -217,41 +270,46 @@ const Hero = () => {
       >
         <Flex flex="1" flexDirection="column">
           <Text textAlign={isMobile || isMd ? 'center' : 'left'} pr={isMobile ? 0 : '10px'} mb="16px">
-            <StyledText display="inline-block" lineHeight="110%" fontWeight={600} color="text" mr="8px">
-              {t("Everyone's")}
-            </StyledText>
-            <StyledText
-              display="inline-block"
-              fontWeight={600}
-              lineHeight="110%"
-              color="secondary"
-              mr={isMobile ? 0 : '8px'}
-            >
-              {t('Favorite')}
-            </StyledText>
+            <SmallHeader>{t('Brave Knights,')}</SmallHeader>
+            <BigHeader>{t('It’s time to don your shining armor!')}</BigHeader>
             {isMobile && <br />}
-            <StyledText display="inline-block" lineHeight="110%" fontWeight={600} color="text">
+            {/* <StyledText display="inline-block" lineHeight="110%" fontWeight={600} color="white">
               {t('DEX')}
-            </StyledText>
+            </StyledText> */}
           </Text>
           <Text
             mb="24px"
-            color={theme.isDark ? '#B8ADD2' : '#7A6EAA'}
+            color={theme.isDark ? '#B8ADD2' : '#b8cbef'}
             maxWidth={600}
-            fontSize={['20px', '20px', null, '24px']}
+            fontSize={['20px', '20px', null, '20px']}
             textAlign={isMobile ? 'center' : 'left'}
-            lineHeight="110%"
             fontWeight={600}
           >
-            {t('Trade, earn, and own crypto on the all-in-one multichain DEX')}
+            {t(
+              'Trade, earn, and win crypto on one of the most popular and reliable decentralized exchanges in all of the land.',
+            )}
           </Text>
 
           <Flex justifyContent={isMobile || isMd ? 'center' : 'start'}>
-            {!account && <ConnectWalletButton style={{ borderRadius: isXs ? 12 : undefined }} scale="md" mr="8px" />}
+            {/* {!account && <ConnectWalletButton style={{ borderRadius: isXs ? 12 : undefined }} scale="md" mr="8px" />} */}
+            <a target="_blank" rel="noreferrer" href="https://knights.gitbook.io/knightswap/">
+              <Button
+                scale="md"
+                style={{
+                  borderRadius: isXs ? 12 : undefined,
+                  backgroundColor: '#FF720D',
+                  color: 'white',
+                  marginRight: '10px',
+                }}
+                variant={!account ? 'secondary' : 'primary'}
+              >
+                {t('Learn')}
+              </Button>
+            </a>
             <NextLinkFromReactRouter to="/swap">
               <Button
                 scale="md"
-                style={{ borderRadius: isXs ? 12 : undefined }}
+                style={{ borderRadius: isXs ? 12 : undefined, backgroundColor: '#FF720D', color: 'white' }}
                 variant={!account ? 'secondary' : 'primary'}
               >
                 {t('Trade Now')}
@@ -267,14 +325,14 @@ const Hero = () => {
           position="relative"
         >
           <BunnyWrapper>
-            <CakeBox>
+            <CakeBox style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <CakeCanvas
-                className={isIOS || isMobile ? 'is-ios' : undefined}
-                width={isIOS || isMobile ? 500 : width}
-                height={isIOS || isMobile ? 500 : height}
-                ref={canvasRef}
+              // className={isIOS || isMobile ? 'is-ios' : undefined}
+              // width={isIOS || isMobile ? 500 : width}
+              // height={isIOS || isMobile ? 500 : height}
+              // ref={canvasRef}
               />
-              {!(isIOS || isMobile) && (
+              {/* {!(isIOS || isMobile) && (
                 <VideoWrapper>
                   <CakeVideo ref={videoRef} width={width} autoPlay muted playsInline>
                     <source src={`${ASSET_CDN}/web/landing/bunnyv2.webm`} type="video/webm" />
@@ -295,7 +353,12 @@ const Hero = () => {
                     <source src={`${ASSET_CDN}/web/landing/rock03.webm`} type="video/webm" />
                   </CakeVideo>
                 </VideoWrapper>
-              )}
+              )} */}
+              <div style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <BouncingComponent>
+                  <img src="images/knightwizard.png" alt="img" />
+                </BouncingComponent>
+              </div>
             </CakeBox>
           </BunnyWrapper>
         </Flex>
