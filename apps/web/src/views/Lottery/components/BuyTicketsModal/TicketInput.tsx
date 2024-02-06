@@ -4,6 +4,30 @@ import { Flex, Text } from '@pancakeswap/uikit'
 import { useTranslation } from '@pancakeswap/localization'
 import { Ticket, UpdateTicketAction } from './useTicketsReducer'
 
+// const InputsContainer = styled.div<{ focused: boolean; isDuplicate: boolean }>`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 36px;
+//   box-sizing: border-box;
+//   background-color: ${({ theme }) => theme.colors.input};
+//   border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
+//   border-radius: 16px;
+//   margin-bottom: 8px;
+//   ${({ isDuplicate }) =>
+//     isDuplicate &&
+//     `
+//     border: 1px solid #FFB237;
+//     box-shadow: 0px 0px 0px 2px #FFB237;
+//   `}
+//   ${({ focused }) =>
+//     focused &&
+//     `
+//     border: 1px solid #7645D9;
+//     box-shadow: 0px 0px 0px 2px #E4DAF7;
+//   `}
+// `
+
 const InputsContainer = styled.div<{ focused: boolean; isDuplicate: boolean }>`
   display: flex;
   justify-content: center;
@@ -11,7 +35,6 @@ const InputsContainer = styled.div<{ focused: boolean; isDuplicate: boolean }>`
   height: 36px;
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.input};
-  border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
   border-radius: 16px;
   margin-bottom: 8px;
   ${({ isDuplicate }) =>

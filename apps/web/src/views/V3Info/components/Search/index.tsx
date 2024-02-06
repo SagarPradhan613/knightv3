@@ -25,9 +25,13 @@ const Container = styled.div`
   width: 100%;
 `
 
+// const StyledInput = styled(Input)`
+//   z-index: 9999;
+//   border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
+// `
+
 const StyledInput = styled(Input)`
   z-index: 9999;
-  border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
 `
 
 const Menu = styled.div`

@@ -83,7 +83,7 @@ export const CakeVaultDetail: React.FC<React.PropsWithChildren<CakeVaultDetailPr
 
   return (
     <>
-      <StyledCardBody isLoading={isLoading}>
+      <StyledCardBody style={{ backgroundColor: '#121D32' }} isLoading={isLoading}>
         {account && pool.vaultKey === VaultKey.CakeVault && (
           <VaultPositionTagWithLabel userData={(vaultPool as DeserializedLockedCakeVault)?.userData} />
         )}

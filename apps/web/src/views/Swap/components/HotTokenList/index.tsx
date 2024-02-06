@@ -22,18 +22,17 @@ const StyledFlex = styled(Flex)`
     min-height: 56px;
   }
   > div:first-child > div {
-    background: ${({ theme }) => (theme.isDark ? `rgba(55, 47, 71,0.5)` : `rgba(238, 234, 244, 0.5)`)};
+    background-color: #1e2b45;
     overflow: hidden;
   }
 `
 
 const StyledTabToggle = styled(TabToggle)`
   cursor: pointer;
-  background-color: ${({ theme, isActive }) =>
-    isActive ? (theme.isDark ? 'rgb(45,48,72)' : '#ffffff') : 'transparent'};
+  color: ${({ theme, isActive }) => (isActive ? (theme.isDark ? '#1e2b45' : '#1e2b45') : '#ff720d')};
+  background-color: ${({ theme, isActive }) => (isActive ? (theme.isDark ? '#ff720d' : '#ff720d') : '#314773')};
   ${({ theme }) => theme.mediaQueries.sm} {
-    background-color: ${({ theme, isActive }) =>
-      isActive ? (theme.isDark ? 'rgb(45,48,72)' : '#f4fdff') : 'transparent'};
+    background-color: ${({ theme, isActive }) => (isActive ? (theme.isDark ? '#ff720d' : '#ff720d') : '#1e2b45')};
   }
 `
 

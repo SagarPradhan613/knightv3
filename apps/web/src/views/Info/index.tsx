@@ -31,10 +31,12 @@ export const InfoPageLayout = ({ children }) => {
 
   return (
     <>
-      <SubMenuItems items={subMenuItems} activeItem={isStableSwap ? '/info?type=stableSwap' : `/info${chainPath}`} />
+      <div style={{ backgroundImage: 'url(/images/mainbg.png)' }}>
+        <SubMenuItems items={subMenuItems} activeItem={isStableSwap ? '/info?type=stableSwap' : `/info${chainPath}`} />
 
-      <InfoNav isStableSwap={isStableSwap} />
-      {children}
+        <InfoNav isStableSwap={isStableSwap} />
+        {children}
+      </div>
     </>
   )
 }

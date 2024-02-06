@@ -32,10 +32,10 @@ export const InfoPageLayout = ({ children }) => {
   )
 
   return (
-    <>
+    <div style={{ backgroundImage: 'url(/images/mainbg.png)' }}>
       <SubMenuItems items={subMenuItems} activeItem={isV3 ? `/info/v3${chainPath}` : `/info${chainPath}`} />
       <InfoNav isStableSwap={false} />
       {children}
-    </>
+    </div>
   )
 }

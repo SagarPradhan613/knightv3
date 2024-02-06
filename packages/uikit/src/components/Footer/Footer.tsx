@@ -57,22 +57,23 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
         >
           {items?.map((item) => (
             <StyledList key={item.label}>
-              <StyledListItem>{item.label}</StyledListItem>
+              <StyledListItem style={{ color: "#ff720d" }}>{item.label}</StyledListItem>
               {item.items?.map(({ label, href, isHighlighted = false }) => (
-                <StyledListItem key={label}>
+                <StyledListItem style={{ color: "#b8cbef", fontSize: "16px", fontWeight: "400" }} key={label}>
                   {href ? (
                     <Link
+                      style={{ color: "#b8cbef", fontSize: "16px", fontWeight: "400" }}
                       data-theme="dark"
                       href={href}
                       target="_blank"
                       rel="noreferrer noopener"
-                      color={isHighlighted ? vars.colors.warning : "text"}
+                      // color={isHighlighted ? vars.colors.warning : "text"}
                       bold={false}
                     >
                       {label}
                     </Link>
                   ) : (
-                    <StyledText>{label}</StyledText>
+                    <StyledText style={{ color: "#b8cbef", fontSize: "16px", fontWeight: "400" }}>{label}</StyledText>
                   )}
                 </StyledListItem>
               ))}
@@ -88,18 +89,18 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
           justifyContent="space-between"
         >
           <Flex order={[2, null, 1]} alignItems="center">
-            {isMounted && <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} />}
-            <LangSelector
+            {/* {isMounted && <ThemeSwitcher isDark={isDark} toggleTheme={toggleTheme} />} */}
+            {/* <LangSelector
               currentLang={currentLang}
               langs={langs}
               setLang={setLang}
-              color="textSubtle"
+              color="primary"
               dropdownPosition="top-right"
-            />
+            /> */}
           </Flex>
           <Flex order={[1, null, 2]} mb={["24px", null, "0"]} justifyContent="space-between" alignItems="center">
             <Box mr="20px">
-              <CakePrice chainId={chainId} cakePriceUsd={cakePriceUsd} color="textSubtle" />
+              <CakePrice chainId={chainId} cakePriceUsd={cakePriceUsd} color="primary" />
             </Box>
             <Button
               data-theme="dark"
@@ -107,9 +108,10 @@ const MenuItem: React.FC<React.PropsWithChildren<FooterProps>> = ({
               href={buyCakeLink}
               target="_blank"
               scale="sm"
+              style={{ color: "white" }}
               endIcon={<ArrowForwardIcon color="backgroundAlt" />}
             >
-              {buyCakeLabel}
+              Buy Knight
             </Button>
           </Flex>
         </StyledToolsContainer>

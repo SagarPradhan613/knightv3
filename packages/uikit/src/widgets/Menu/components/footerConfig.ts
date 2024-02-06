@@ -3,112 +3,116 @@ import { FooterLinkType } from "../../../components/Footer/types";
 
 export const footerLinks: (t: ContextApi["t"]) => FooterLinkType[] = (t) => [
   {
-    label: t("Ecosystem"),
+    label: t("LISTING"),
     items: [
       {
-        label: t("Trade"),
-        href: "/swap",
+        label: t("BscScan"),
+        href: "https://bscscan.com/token/0xD23811058Eb6e7967D9a00dc3886E75610c4AbBa",
       },
       {
-        label: t("Earn"),
-        href: "/farms",
+        label: t("DappRadar"),
+        href: "https://dappradar.com/binance-smart-chain/exchanges/knightswap",
       },
       {
-        label: t("Game"),
-        href: "https://pancakeswap.games/",
+        label: t("CoinGecko"),
+        href: "https://www.coingecko.com/en/coins/knightswap",
       },
       {
-        label: t("NFT"),
-        href: "/nfts",
+        label: t("coinmarketcap"),
+        href: "https://coinmarketcap.com/currencies/knightswap/",
       },
       {
-        label: t("Tokenomics"),
-        href: "https://docs.pancakeswap.finance/governance-and-tokenomics/cake-tokenomics",
-      },
-      {
-        label: t("Litepaper"),
-        href: "https://assets.pancakeswap.finance/litepaper/v2litepaper.pdf",
-      },
-      {
-        label: t("CAKE Emission Projection"),
-        href: "https://analytics.pancakeswap.finance/",
-      },
-      {
-        label: t("Merchandise"),
-        href: "https://merch.pancakeswap.finance/",
+        label: t("Gecko Terminal"),
+        href: "https://www.geckoterminal.com/bsc/knightswap/pools",
       },
     ],
   },
   {
-    label: "Business",
+    label: "MORE",
     items: [
-      {
-        label: t("Farms and Syrup Pools"),
-        href: "https://docs.pancakeswap.finance/ecosystem-and-partnerships/business-partnerships/syrup-pools-and-farms",
-      },
-      {
-        label: t("IFO"),
-        href: "https://docs.pancakeswap.finance/ecosystem-and-partnerships/business-partnerships/initial-farm-offerings-ifos",
-      },
-      {
-        label: t("NFT Marketplace"),
-        href: "https://docs.pancakeswap.finance/ecosystem-and-partnerships/business-partnerships/nft-market-applications",
-      },
-    ],
-  },
-  {
-    label: t("Developers"),
-    items: [
-      {
-        label: t("Contributing"),
-        href: "https://docs.pancakeswap.finance/developers/contributing",
-      },
       {
         label: t("Github"),
-        href: "https://github.com/pancakeswap",
+        href: "https://github.com/Knightswap",
       },
       {
-        label: t("Bug Bounty"),
-        href: "https://docs.pancakeswap.finance/developers/bug-bounty",
+        label: t("IWO"),
+        href: "https://knight-swap-farms-build.pages.dev/iwo",
+      },
+      {
+        label: t("Lending"),
+        href: "https://lending.knightswap.financial/",
+      },
+      {
+        label: t("Castle"),
+        href: "https://www.knightcompounder.com/#/bsc",
+      },
+      {
+        label: t("Audit"),
+        href: "https://github.com/TechRate/Smart-Contract-Audits/blob/main/November/KnightSwap.pdf",
+      },
+      {
+        label: t("Docs"),
+        href: "https://knights.gitbook.io/knightswap/",
+      },
+      {
+        label: t("NFT marketplace"),
+        href: "https://www.wizard.financial/marketplace",
+      },
+      {
+        label: t("blog"),
+        href: "https://medium.com/knight-bsc-dark-knight-ftm",
+      },
+      {
+        label: t("Partnership"),
+        href: "https://docs.google.com/forms/d/e/1FAIpQLSd_8rGEuUBDqtQwNSS7Z1z9k_qtLFLecmHIIkqTZxWoli3jBg/viewform?pli=1",
       },
     ],
   },
   {
-    label: t("Support"),
+    label: t("ANALYTICS"),
     items: [
       {
-        label: t("Contact"),
-        href: "https://docs.pancakeswap.finance/contact-us/customer-support",
-      },
-      {
-        label: t("Troubleshooting"),
-        href: "https://docs.pancakeswap.finance/readme/help/troubleshooting",
-      },
-      {
-        label: t("Documentation"),
-        href: "https://docs.pancakeswap.finance/",
+        label: t("overview"),
+        href: "/info",
       },
     ],
   },
-  {
-    label: t("About"),
-    items: [
-      {
-        label: t("Terms Of Service"),
-        href: "https://pancakeswap.finance/terms-of-service",
-      },
-      {
-        label: t("Blog"),
-        href: "https://blog.pancakeswap.finance/",
-      },
-      {
-        label: t("Brand Assets"),
-        href: "https://docs.pancakeswap.finance/ecosystem-and-partnerships/brand",
-      },
-      {
-        label: t("Careers"),
-        href: "https://docs.pancakeswap.finance/team/become-a-chef",
-      },
-    ],
-  },
+  // {
+  //   label: t("Support"),
+  //   items: [
+  //     {
+  //       label: t("Contact"),
+  //       href: "https://docs.pancakeswap.finance/contact-us/customer-support",
+  //     },
+  //     {
+  //       label: t("Troubleshooting"),
+  //       href: "https://docs.pancakeswap.finance/readme/help/troubleshooting",
+  //     },
+  //     {
+  //       label: t("Documentation"),
+  //       href: "https://docs.pancakeswap.finance/",
+  //     },
+  //   ],
+  // },
+  // {
+  //   label: t("About"),
+  //   items: [
+  //     {
+  //       label: t("Terms Of Service"),
+  //       href: "https://pancakeswap.finance/terms-of-service",
+  //     },
+  //     {
+  //       label: t("Blog"),
+  //       href: "https://blog.pancakeswap.finance/",
+  //     },
+  //     {
+  //       label: t("Brand Assets"),
+  //       href: "https://docs.pancakeswap.finance/ecosystem-and-partnerships/brand",
+  //     },
+  //     {
+  //       label: t("Careers"),
+  //       href: "https://docs.pancakeswap.finance/team/become-a-chef",
+  //     },
+  //   ],
+  // },
 ];

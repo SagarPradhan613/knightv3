@@ -27,6 +27,7 @@ const Page: React.FC<
 
   return (
     <Swap.Page
+      style={{ background: 'transparent' }}
       removePadding={removePadding}
       noMinHeight={noMinHeight}
       hideFooterOnDesktop={hideFooterOnDesktop}

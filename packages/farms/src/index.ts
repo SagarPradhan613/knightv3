@@ -46,7 +46,6 @@ export function createFarmFetcher(provider: ({ chainId }: { chainId: FarmV2Suppo
       provider,
       masterChefAddress,
     })
-
     const regularCakePerBlock = formatEther(cakePerBlock)
     const farmsWithPrice = await farmV2FetchFarms({
       provider,

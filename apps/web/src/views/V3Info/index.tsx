@@ -110,141 +110,143 @@ export default function Home() {
   }, [liquidityHover])
 
   return (
-    <Page>
-      <Heading scale="lg" mb="16px">
-        {t('PancakeSwap Info & Analytics')}
-      </Heading>
-      <ChartCardsContainer>
-        <Card>
-          <LineChart
-            data={formattedTvlData}
-            height={220}
-            minHeight={332}
-            // color={theme.colors.primary}
-            value={liquidityHover}
-            label={leftLabel}
-            setValue={setLiquidityHover}
-            setLabel={setLeftLabel}
-            topLeft={
-              <AutoColumn gap="4px">
-                <Text fontSize="16px">{t('TVL')}</Text>
-                <Text fontSize="32px">
-                  <MonoSpace>{tvlValue}</MonoSpace>
-                </Text>
-                <Text fontSize="12px" height="14px">
-                  <MonoSpace>{leftLabel ?? now.format('MMM D, YYYY')} (UTC)</MonoSpace>
-                </Text>
-              </AutoColumn>
-            }
-          />
-        </Card>
-        <Card>
-          <BarChart
-            height={200}
-            minHeight={332}
-            data={
-              volumeWindow === VolumeWindow.monthly
-                ? monthlyVolumeData
-                : volumeWindow === VolumeWindow.weekly
-                ? weeklyVolumeData
-                : formattedVolumeData
-            }
-            color={theme.colors.primary}
-            setValue={setVolumeHover}
-            setLabel={setRightLabel}
-            value={volumeHover}
-            label={rightLabel}
-            activeWindow={volumeWindow}
-            topRight={
-              <RowFixed style={{ marginLeft: '-40px', marginTop: '8px' }}>
-                <Button
-                  scale="sm"
-                  variant={volumeWindow === VolumeWindow.daily ? 'primary' : 'bubblegum'}
-                  onClick={() => setVolumeWindow(VolumeWindow.daily)}
-                >
-                  D
-                </Button>
-                <Button
-                  scale="sm"
-                  variant={volumeWindow === VolumeWindow.weekly ? 'primary' : 'bubblegum'}
-                  style={{ marginLeft: '8px' }}
-                  onClick={() => setVolumeWindow(VolumeWindow.weekly)}
-                >
-                  W
-                </Button>
-                <Button
-                  variant={volumeWindow === VolumeWindow.monthly ? 'primary' : 'bubblegum'}
-                  scale="sm"
-                  style={{ marginLeft: '8px' }}
-                  onClick={() => setVolumeWindow(VolumeWindow.monthly)}
-                >
-                  M
-                </Button>
-              </RowFixed>
-            }
-            topLeft={
-              <AutoColumn gap="4px">
-                <Text fontSize="16px">{t('Volume')}</Text>
-                <Text fontSize="32px">
-                  <MonoSpace>
-                    {volumeHover
-                      ? formatDollarAmount(volumeHover)
-                      : formatDollarAmount(formattedVolumeData[formattedVolumeData.length - 1]?.value, 2)}
-                  </MonoSpace>
-                </Text>
-                <Text fontSize="12px" height="14px">
-                  <MonoSpace>{rightLabel ?? now.format('MMM D, YYYY')} (UTC)</MonoSpace>
-                </Text>
-              </AutoColumn>
-            }
-          />
-        </Card>
-      </ChartCardsContainer>
-      <ProtocolWrapper>
-        <DarkGreyCard>
-          <RowBetween>
-            <RowFixed>
-              <RowFixed mr="20px">
-                <Text mr="4px">{t('Volume 24H')}: </Text>
-                <Text mr="4px">{formatDollarAmount(formattedVolumeData[formattedVolumeData.length - 1]?.value)}</Text>
-                <Percent
-                  value={getPercentChange(
-                    formattedVolumeData[formattedVolumeData.length - 1]?.value.toString(),
-                    formattedVolumeData[formattedVolumeData.length - 2]?.value.toString(),
-                  )}
-                  wrap
-                />
-              </RowFixed>
-              <RowFixed mr="20px">
-                <Text mr="4px">{t('Fees 24H')}: </Text>
-                <Text mr="4px">{formatDollarAmount(protocolData?.feesUSD)}</Text>
-                <Percent value={protocolData?.feeChange} wrap />
-              </RowFixed>
-              <Box>
-                <RowFixed mr="20px">
-                  <Text mr="4px">{t('TVL')}: </Text>
-                  <Text mr="4px">{formatDollarAmount(protocolData?.tvlUSD)}</Text>
-                  <Percent value={protocolData?.tvlUSDChange} wrap />
+    <div style={{ width: '100%', backgroundImage: 'url(/images/mainbg.png)' }}>
+      <Page>
+        <Heading scale="lg" mb="16px">
+          {t('PancakeSwap Info & Analytics')}
+        </Heading>
+        <ChartCardsContainer>
+          <Card>
+            <LineChart
+              data={formattedTvlData}
+              height={220}
+              minHeight={332}
+              // color={theme.colors.primary}
+              value={liquidityHover}
+              label={leftLabel}
+              setValue={setLiquidityHover}
+              setLabel={setLeftLabel}
+              topLeft={
+                <AutoColumn gap="4px">
+                  <Text fontSize="16px">{t('TVL')}</Text>
+                  <Text fontSize="32px">
+                    <MonoSpace>{tvlValue}</MonoSpace>
+                  </Text>
+                  <Text fontSize="12px" height="14px">
+                    <MonoSpace>{leftLabel ?? now.format('MMM D, YYYY')} (UTC)</MonoSpace>
+                  </Text>
+                </AutoColumn>
+              }
+            />
+          </Card>
+          <Card>
+            <BarChart
+              height={200}
+              minHeight={332}
+              data={
+                volumeWindow === VolumeWindow.monthly
+                  ? monthlyVolumeData
+                  : volumeWindow === VolumeWindow.weekly
+                  ? weeklyVolumeData
+                  : formattedVolumeData
+              }
+              color={theme.colors.primary}
+              setValue={setVolumeHover}
+              setLabel={setRightLabel}
+              value={volumeHover}
+              label={rightLabel}
+              activeWindow={volumeWindow}
+              topRight={
+                <RowFixed style={{ marginLeft: '-40px', marginTop: '8px' }}>
+                  <Button
+                    scale="sm"
+                    variant={volumeWindow === VolumeWindow.daily ? 'primary' : 'bubblegum'}
+                    onClick={() => setVolumeWindow(VolumeWindow.daily)}
+                  >
+                    D
+                  </Button>
+                  <Button
+                    scale="sm"
+                    variant={volumeWindow === VolumeWindow.weekly ? 'primary' : 'bubblegum'}
+                    style={{ marginLeft: '8px' }}
+                    onClick={() => setVolumeWindow(VolumeWindow.weekly)}
+                  >
+                    W
+                  </Button>
+                  <Button
+                    variant={volumeWindow === VolumeWindow.monthly ? 'primary' : 'bubblegum'}
+                    scale="sm"
+                    style={{ marginLeft: '8px' }}
+                    onClick={() => setVolumeWindow(VolumeWindow.monthly)}
+                  >
+                    M
+                  </Button>
                 </RowFixed>
-              </Box>
-            </RowFixed>
-          </RowBetween>
-        </DarkGreyCard>
-      </ProtocolWrapper>
-      <Heading scale="lg" mt="40px" mb="16px">
-        {t('Top Tokens')}
-      </Heading>
-      <TokenTable tokenDatas={formattedTokens} />
+              }
+              topLeft={
+                <AutoColumn gap="4px">
+                  <Text fontSize="16px">{t('Volume')}</Text>
+                  <Text fontSize="32px">
+                    <MonoSpace>
+                      {volumeHover
+                        ? formatDollarAmount(volumeHover)
+                        : formatDollarAmount(formattedVolumeData[formattedVolumeData.length - 1]?.value, 2)}
+                    </MonoSpace>
+                  </Text>
+                  <Text fontSize="12px" height="14px">
+                    <MonoSpace>{rightLabel ?? now.format('MMM D, YYYY')} (UTC)</MonoSpace>
+                  </Text>
+                </AutoColumn>
+              }
+            />
+          </Card>
+        </ChartCardsContainer>
+        <ProtocolWrapper>
+          <DarkGreyCard>
+            <RowBetween>
+              <RowFixed>
+                <RowFixed mr="20px">
+                  <Text mr="4px">{t('Volume 24H')}: </Text>
+                  <Text mr="4px">{formatDollarAmount(formattedVolumeData[formattedVolumeData.length - 1]?.value)}</Text>
+                  <Percent
+                    value={getPercentChange(
+                      formattedVolumeData[formattedVolumeData.length - 1]?.value.toString(),
+                      formattedVolumeData[formattedVolumeData.length - 2]?.value.toString(),
+                    )}
+                    wrap
+                  />
+                </RowFixed>
+                <RowFixed mr="20px">
+                  <Text mr="4px">{t('Fees 24H')}: </Text>
+                  <Text mr="4px">{formatDollarAmount(protocolData?.feesUSD)}</Text>
+                  <Percent value={protocolData?.feeChange} wrap />
+                </RowFixed>
+                <Box>
+                  <RowFixed mr="20px">
+                    <Text mr="4px">{t('TVL')}: </Text>
+                    <Text mr="4px">{formatDollarAmount(protocolData?.tvlUSD)}</Text>
+                    <Percent value={protocolData?.tvlUSDChange} wrap />
+                  </RowFixed>
+                </Box>
+              </RowFixed>
+            </RowBetween>
+          </DarkGreyCard>
+        </ProtocolWrapper>
+        <Heading scale="lg" mt="40px" mb="16px">
+          {t('Top Tokens')}
+        </Heading>
+        <TokenTable tokenDatas={formattedTokens} />
 
-      <Heading scale="lg" mt="40px" mb="16px">
-        {t('Top Pairs')}
-      </Heading>
-      <PoolTable poolDatas={poolDatas} />
-      <Heading scale="lg" mt="40px" mb="16px">
-        {t('Transactions')}
-      </Heading>
+        <Heading scale="lg" mt="40px" mb="16px">
+          {t('Top Pairs')}
+        </Heading>
+        <PoolTable poolDatas={poolDatas} />
+        <Heading scale="lg" mt="40px" mb="16px">
+          {t('Transactions')}
+        </Heading>
 
-      {transactionData ? <TransactionsTable transactions={transactionData} /> : null}
-    </Page>
+        {transactionData ? <TransactionsTable transactions={transactionData} /> : null}
+      </Page>
+    </div>
   )
 }

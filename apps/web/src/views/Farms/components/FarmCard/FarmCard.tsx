@@ -103,7 +103,7 @@ const FarmCard: React.FC<React.PropsWithChildren<FarmCardProps>> = ({
 
   return (
     <StyledCard isActive={isPromotedFarm}>
-      <FarmCardInnerContainer>
+      <FarmCardInnerContainer style={{ backgroundColor: '#121D32' }}>
         <CardHeading
           lpLabel={lpLabel}
           multiplier={farm.multiplier}
@@ -177,7 +177,7 @@ const FarmCard: React.FC<React.PropsWithChildren<FarmCardProps>> = ({
         />
       </FarmCardInnerContainer>
 
-      <ExpandingWrapper>
+      <ExpandingWrapper style={{ backgroundColor: '#121D32' }}>
         <ExpandableSectionButton onClick={toggleExpandableSection} expanded={showExpandableSection} />
         {showExpandableSection && (
           <>
