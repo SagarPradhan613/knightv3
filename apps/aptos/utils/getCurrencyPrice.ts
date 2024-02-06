@@ -3,7 +3,7 @@ import maxBy from 'lodash/maxBy'
 import _uniqBy from 'lodash/uniqBy'
 import { PairState } from '../hooks/usePairs'
 
-export default function getCurrencyPrice(
+export default function getCurrencyUsdPrice(
   currency: Currency | undefined,
   defaultStable: Currency,
   wnative: Currency,

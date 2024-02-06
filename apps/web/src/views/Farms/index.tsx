@@ -18,7 +18,11 @@ export function useIsBloctoETH() {
 }
 
 export const FarmsV3PageLayout: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
-  return <FarmsV3>{children}</FarmsV3>
+  return (
+    <div style={{ backgroundImage: 'url(/images/mainbg.png)' }}>
+      <FarmsV3>{children}</FarmsV3>
+    </div>
+  )
 }
 
 export { FarmsContext, FarmsV3Context }

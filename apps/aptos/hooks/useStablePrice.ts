@@ -6,10 +6,12 @@ import BigNumber from 'bignumber.js'
 import { useAllCommonPairs } from 'hooks/Trades'
 import tryParseAmount from '@pancakeswap/utils/tryParseAmount'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
+import { getCurrencyUsdPrice } from '@pancakeswap/utils/getCurrencyPrice'
 import { useCakePrice } from './useCakePrice'
 import useNativeCurrency from './useNativeCurrency'
 import { usePairs } from './usePairs'
-import getCurrencyPrice from '../utils/getCurrencyPrice'
+// import getCurrencyPrice from '../utils/getCurrencyPrice'
+
 import { useActiveChainId } from './useNetwork'
 
 /**
@@ -48,7 +50,7 @@ export default function useStablePrice(currency?: Currency): Price<Currency, Cur
   )
 
   return useMemo(() => {
-    return getCurrencyPrice(
+    return getCurrencyUsdPrice(
       currency,
       defaultStable,
       wnative,
